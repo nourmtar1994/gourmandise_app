@@ -1,0 +1,11 @@
+.slider {
+  height: 100vh;
+  width: 100%;
+  /* background-size: 100% 91vh; */
+  background: no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100% 91vh;
+  margin-top: -40px;
+}

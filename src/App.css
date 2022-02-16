@@ -1,0 +1,10 @@
+.sitefooter {
+  transform: translateY(300px) !important;
+  height: 100px;
+}
+
+@media (min-width: 641px) {
+  .site-footer-inner {
+    padding: 30px 0 !important;
+  }
+}
