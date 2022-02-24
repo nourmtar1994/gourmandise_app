@@ -5,6 +5,7 @@ import FeaturesTiles from "../components/sections/FeaturesTiles";
 import FeaturesSplit from "../components/sections/FeaturesSplit";
 import Testimonial from "../components/sections/Testimonial";
 import Cta from "../components/sections/Cta";
+import Switch from "../components/elements/Switch";
 
 import ReactFullpage from "@fullpage/react-fullpage";
 import * as classes from "./Home.module.css";
@@ -17,7 +18,10 @@ import menu4 from "../assets/images/gourmandise/menu/menu4.webp";
 
 import Slider from "../components/sections/FullPages/Slider";
 import Footer from "../components/layout/Footer";
-import { Card } from "antd";
+import { Card, Space } from "antd";
+import SmoothScroll from "../components/elements/SmoothScroll";
+import Button from "../components/elements/Button";
+import Evaluation from "../components/sections/Evaluation/Evaluation";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
 const { Meta } = Card;
@@ -92,9 +96,7 @@ const Home = () => {
       <Testimonial topDivider />
       <Cta split /> */}
       <ReactFullpage
-        debug /* Debug logging */
-        // Required when using extensions
-        // fullpage options
+        debug
         licenseKey={"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"} // Get one from https://alvarotrigo.com/fullPage/pricing/
         navigation
         anchors={["firstPage", "secondPage", "thirdPage", "contact_us"]}
@@ -104,36 +106,24 @@ const Home = () => {
           <ReactFullpage.Wrapper>
             <div
               align="center"
-              key={"text"}
+              key={"1"}
               className={SEL + " " + classes.sectionContainer}
             >
               <Slider images={sliderData} />
               <h1>qsdqsd</h1>
             </div>
+
             <div
               align="center"
-              key={"text"}
+              key={"2"}
               className={SEL + " " + classes.sectionContainer}
             >
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
+              <Evaluation />
             </div>
+
             <div
               align="center"
-              key={"text"}
+              key={"3"}
               className={SEL + " " + classes.sectionContainer}
             >
               <br></br>
@@ -141,7 +131,7 @@ const Home = () => {
             </div>
             <div
               align="center"
-              key={"text"}
+              key={"4"}
               className={SEL + " " + classes.sectionContainer}
             >
               <Footer />
