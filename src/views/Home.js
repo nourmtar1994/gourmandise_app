@@ -59,22 +59,22 @@ const Home = () => {
   const sliderData = [
     {
       image: menu2,
-      text: "some description 1",
+      // text: "some description 1",
       extra: null,
     },
     {
       image: menu1,
-      text: "some description 2",
+      // text: "some description 2",
       extra: null,
     },
     {
       image: menu3,
-      text: "some description 3",
+      // text: "some description 3",
       extra: null,
     },
     {
       image: menu4,
-      text: "some description 4",
+      // text: "some description 4",
       extra: null,
     },
   ];
@@ -110,7 +110,6 @@ const Home = () => {
               className={SEL + " " + classes.sectionContainer}
             >
               <Slider images={sliderData} />
-              <h1>qsdqsd</h1>
             </div>
 
             <div

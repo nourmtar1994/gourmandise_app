@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Radio, Steps } from "antd";
+import { Radio, Steps, Card } from "antd";
 
 import * as classes from "./Evaluation.module.css";
 import { StepForwardOutlined } from "@ant-design/icons/lib/icons";
+import Formulaire from "./Formulaire";
 const { Step } = Steps;
 
 const Evaluation = () => {
@@ -12,7 +13,7 @@ const Evaluation = () => {
     {
       title: "Vous êtes :",
       content: (
-        <Radio.Group  value={value}>
+        <Radio.Group value={value}>
           <Radio value={1}>Homme</Radio>
           <Radio value={2}>Femme</Radio>
         </Radio.Group>
@@ -30,7 +31,8 @@ const Evaluation = () => {
 
   return (
     <div className={classes.container}>
-      <Steps
+      <div className={classes.backdropTop}></div>
+      {/* <Steps
         direction="horizontal"
         current={current}
         onChange={(e) => setCurrent(e)}
@@ -40,7 +42,10 @@ const Evaluation = () => {
         ))}
       </Steps>
 
-      <div className={classes.stepsContent}>{steps[current].content}</div>
+      <div className={classes.stepsContent}>{steps[current].content}</div> */}
+      <div className={classes.backdropBottom}></div>
+
+      <Formulaire />
     </div>
   );
 };

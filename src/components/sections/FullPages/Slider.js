@@ -1,4 +1,5 @@
 import React from "react";
+import QrCodeScan from "../QrCodeScan/QrCodeScan";
 
 import * as classes from "./Slider.module.css";
 
@@ -12,7 +13,7 @@ const Slider = ({ images }) => {
             className={"slide " + classes.slider}
             style={{ backgroundImage: "url(" + item.image + ")" }}
           >
-            <h1>{item.text}</h1>
+            <QrCodeScan />
           </div>
         </>
       ))}
