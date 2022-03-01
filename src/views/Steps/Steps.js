@@ -18,7 +18,7 @@ const Steps = () => {
     padding: "10px",
     border: "none",
     float: "right",
-    marginRight: "-10px",
+    marginTop: "10px",
     width: "20%",
   };
 
@@ -31,7 +31,7 @@ const Steps = () => {
     border: "none",
     padding: "10px",
     float: "left",
-    marginLeft: "-10px",
+    marginTop: "10px",
     width: "20%",
   };
   const [currentStep, setCurrentStep] = useState(0);
