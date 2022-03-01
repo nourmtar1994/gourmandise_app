@@ -1,32 +1,37 @@
 .space {
   display: inline-block;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-  margin-top: 20vh;
-  background-color: #0000000f;
-  border-radius: 50px;
+  height: fit-content;
+  /* background-color: #00000012; */
+  /* background-color: #f7f7f71f; */
+  background-color: #0000000a;
+  border-radius: 5px;
   padding: 40px;
-}
-
-.loginConatiner {
   width: 100%;
-  height: 100vh;
-  background-color: #faebd7;
+  animation: bounce; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s;
 }
-
-.loginConatiner .loginInput {
+.space .loginInput {
   margin: 20px 0;
-  color: #fff !important;
-  font-size: 1em;
+  color: #000000c2 !important;
+  font-size: 0.8em;
   height: 50px;
-  border-radius: 15px;
+  border-radius: 5px;
   border: none;
   background-color: #00000025;
   width: 80%;
   text-align: center;
+  font-weight: bold;
+}
+.space .loginInput::placeholder {
+  color: rgba(36, 36, 36, 0.624) !important;
 }
 
-.loginConatiner .loginInput::placeholder {
-  color: #fff !important;
+.logo {
+  display: block;
+  font-size: 4em;
+  color: #b18f5c;
+}
+.description {
+  font-size: 1em;
+  color: #b18f5c;
 }

@@ -12,9 +12,7 @@ const Slider = ({ images }) => {
             key={index}
             className={"slide " + classes.slider}
             style={{ backgroundImage: "url(" + item.image + ")" }}
-          >
-            <QrCodeScan />
-          </div>
+          ></div>
         </>
       ))}
     </>

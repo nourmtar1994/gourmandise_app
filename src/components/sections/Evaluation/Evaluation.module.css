@@ -1,7 +1,8 @@
 .container {
   position: relative;
-  width: 80%;
-  background: #f7f7f71f;
+  width: 100%;
+  /* background: #f7f7f71f; */
+  background-color: #0000000a;
   padding: 20px;
   min-height: 30vh;
   height: fit-content;
@@ -18,7 +19,8 @@
 
 /* Track */
 .container::-webkit-scrollbar-track {
-  background: #303234;
+  background: #15171900;
+
   border-radius: 5px;
 }
 
