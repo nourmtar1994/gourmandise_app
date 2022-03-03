@@ -80,6 +80,8 @@ const Steps = () => {
     <Row className={classes.stepsContainer} align={"center"}>
       <Col xs={{ span: 20 }} md={{ span: 16 }}>
         <img className={classes.appLogo} src={logo}></img>
+        <br />
+        <br />
         {!evalution ? (
           <MultiStep
             activeStep={currentStep}

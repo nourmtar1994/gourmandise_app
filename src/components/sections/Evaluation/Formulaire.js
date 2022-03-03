@@ -71,8 +71,10 @@ const commandes_cause = [
 ];
 
 const Formulaire = ({ setEvalution }) => {
+
   const [EvaluationData, setEvaluationData] = useState({});
   const [form] = Form.useForm();
+
   useEffect(() => {
     console.log(EvaluationData);
   }, [EvaluationData]);
