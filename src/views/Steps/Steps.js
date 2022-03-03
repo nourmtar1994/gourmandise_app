@@ -39,10 +39,18 @@ const Steps = () => {
   const [localisation, setLocalisation] = useState(null);
   const [evalution, setEvalution] = useState(false);
 
+  const [EvaluationData, setEvaluationData] = useState({});
+
   const [steps, setSteps] = useState([
     {
       name: "Identifiez Vous 1",
-      component: <Login setIdentified={setIdentified} />,
+      component: (
+        <Login
+          EvaluationData={EvaluationData}
+          setEvaluationData={setEvaluationData}
+          setIdentified={setIdentified}
+        />
+      ),
     },
   ]);
 
@@ -54,6 +62,8 @@ const Steps = () => {
           name: "Trouvez votre Gourmandise",
           component: (
             <QrCodeScan
+              EvaluationData={EvaluationData}
+              setEvaluationData={setEvaluationData}
               identified={identified}
               setLocalisation={setLocalisation}
             />
@@ -70,7 +80,13 @@ const Steps = () => {
 
         {
           name: "Evaluez",
-          component: <Evaluation setEvalution={setEvalution} />,
+          component: (
+            <Evaluation
+              EvaluationData={EvaluationData}
+              setEvaluationData={setEvaluationData}
+              setEvalution={setEvalution}
+            />
+          ),
         },
       ]);
     setCurrentStep(2);

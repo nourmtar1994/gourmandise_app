@@ -4,12 +4,21 @@ import { QrcodeOutlined } from "@ant-design/icons/lib/icons";
 
 import * as classes from "./QrCodeScan.module.css";
 import { Input } from "antd";
-const QrCodeScan = ({ setLocalisation }) => {
+import { useHistory } from "react-router-dom";
+const QrCodeScan = ({ setLocalisation, EvaluationData, setEvaluationData }) => {
   const [qrCodeScanner, setqrCodeScanner] = useState(null);
+
+  let history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(qrCodeScanner);
     setLocalisation(true);
+
+    setEvaluationData({
+      ...EvaluationData,
+      ptVenteID: qrCodeScanner,
+    });
+    history.push("/steps/" + qrCodeScanner);
   };
   useEffect(() => {
     qrCodeScanner && setLocalisation(null);

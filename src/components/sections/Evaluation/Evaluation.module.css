@@ -43,3 +43,26 @@
   color: #bf9a62;
   transform: translateY(10px);
 }
+
+.header {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+  /* color: ; */
+  border-radius: 10px;
+  width: 100%;
+}
+
+.header h2 {
+  margin: 10px 0;
+}
+
+.header .description {
+  font-size: 14px !important;
+}
+
+.formCard {
+  border-radius: 10px;
+  margin-bottom: 20px;
+}

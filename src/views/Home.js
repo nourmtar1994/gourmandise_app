@@ -22,13 +22,17 @@ import { Card, Space } from "antd";
 import SmoothScroll from "../components/elements/SmoothScroll";
 import Button from "../components/elements/Button";
 import Evaluation from "../components/sections/Evaluation/Evaluation";
+import Dashboard from "../components/sections/Dashboard/Dashboard";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
 const { Meta } = Card;
 
 const Home = () => {
   const originalColors = [
+    "#f7f4eb",
+    "#f7f4eb",
     "#ffefd7",
+    "#f7f4eb",
     "#181613",
     "#ff5f45",
     "#181613",
@@ -115,9 +119,11 @@ const Home = () => {
             <div
               align="center"
               key={"2"}
-              className={SEL + " " + classes.sectionContainer}
+              className={
+                SEL + " " + classes.sectionContainer + " " + classes.bgLight
+              }
             >
-              <Evaluation />
+              <Dashboard />
             </div>
 
             <div

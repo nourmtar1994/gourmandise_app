@@ -1,18 +1,26 @@
 import { UserOutlined } from "@ant-design/icons/lib/icons";
 import { Input } from "antd";
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+import { getPointVente } from "../../services/PointVente";
 import * as classes from "./Login.module.css";
 
-const Login = ({ setIdentified }) => {
+const Login = ({ setIdentified, EvaluationData, setEvaluationData }) => {
+  let history = useHistory();
   const [login, setlogin] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(login);
     setIdentified(true);
+
+    setEvaluationData({
+      ...EvaluationData,
+      login: login,
+    });
   };
 
   useEffect(() => {
+    history.push("/steps");
     login && setIdentified(null);
   }, []);
 
@@ -25,7 +33,7 @@ const Login = ({ setIdentified }) => {
           autoFocus
           // disabled={login ? true : false}
           placeholder="Login"
-          type="text"
+          type="email"
           className={classes.loginInput}
           value={login}
           onChange={(e) => setlogin(e.target.value)}

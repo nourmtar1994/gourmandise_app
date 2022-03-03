@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { useLocation, Switch } from "react-router-dom";
+import { useLocation, Switch, Route } from "react-router-dom";
 import AppRoute from "./utils/AppRoute";
 import ScrollReveal from "./utils/ScrollReveal";
 import ReactGA from "react-ga";
@@ -12,6 +12,7 @@ import Home from "./views/Home";
 import "./App.css";
 import Login from "./views/Login/Login";
 import Steps from "./views/Steps/Steps";
+import Evaluation from "./components/sections/Evaluation/Evaluation";
 
 // // Initialize Google Analytics
 // ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -40,9 +41,12 @@ const App = () => {
         <Switch>
           <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
           <AppRoute exact path="/login" component={Login} />
-          <AppRoute exact path="/Steps">
-            <Steps />
+          <AppRoute exact path="/eval">
+            <Evaluation />
           </AppRoute>
+          <Route path="/Steps/:ptVenteID?">
+            <Steps />
+          </Route>
         </Switch>
       )}
     />
