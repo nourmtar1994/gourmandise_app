@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { useParams } from "react-router-dom";
+import axios from "../../../services/axios";
 
 import {
   Card,
@@ -13,9 +14,10 @@ import {
   Select,
   Button,
 } from "antd";
-import { Link, useParams } from "react-router-dom";
+
 
 import { getPointVente } from "../../../services/PointVente";
+
 import * as classes from "./Evaluation.module.css";
 
 const { Title, Text } = Typography;
@@ -91,8 +93,8 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
     const getptVt = async () => {
       try {
         const { data } = await axios.get(
-          "http://193.95.69.50:8585/api/pt_de_vente/single_read_pt.php?id=" +
-            ptVenteID
+          "pt_de_vente/getByID.php?id=" +
+          ptVenteID
         );
         setSelectedPointVente(data);
       } catch (error) {
@@ -111,7 +113,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
   }, [EvaluationData]);
 
   const onFinish = (values) => {
-    // setEvaluationData({ ...EvaluationData, evaluation: values });
+    setEvaluationData({ ...EvaluationData, evaluation: values });
     console.log(values);
 
     const data = JSON.stringify({
@@ -121,14 +123,29 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
       email: EvaluationData.login,
     });
 
-    console.log(data);
-
     axios
-      .post("http://193.95.69.50:8585/api/client/create_cl.php", data)
-      .then((res) => console.log(res));
-  };
+      .post("client/create_cl.php", data)
+      .then((res) => console.log(res))
+      .then(() => {
+        for (var prop in values) {
+          // console.log(`obj.${prop} = ${EvaluationData.evaluation[prop]}`);
+          let evaluationItem = {
+            id_question: prop,
+            id_client: EvaluationData.login,
+            reponse: values[prop],
+            id_pt_de_vente: selectedPointVente.id
+          }
 
-  // setEvalution(true);
+
+          axios.post('evaluation/create_ev.php', evaluationItem)
+            .then((res => console.log(res)))
+        }
+      })
+      .finally(() => {
+        setEvalution(true);
+      })
+
+  };
 
   return (
     <div className={classes.container}>
@@ -171,7 +188,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
                 },
               ]}
             >
-              <Select placeholder={"Sélectionner"}>
+              <Select placeholder={"Sélectionner"} onChange={(e) => setSelectedPointVente(e)} >
                 {pointVente &&
                   pointVente.body?.map((el) => (
                     <Option key={el.id} value={el.nom}>
@@ -268,7 +285,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           align="left"
           hoverable
           className={classes.formCard}
-          title="Combien de fois vous visitez cet point de vente par mois ? *"
+          title="Combien de fois vous visitez cet point de vente par mois ? "
         >
           <Form.Item
             name="nbr_visite"
@@ -318,7 +335,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           align="left"
           hoverable
           className={classes.formCard}
-          title="Comment trouvez vous la propreté de cet espace de vente ? *"
+          title="Comment trouvez vous la propreté de cet espace de vente ?"
         >
           <Form.Item name="proprete_espace">
             <Radio.Group name="proprete_espace">
@@ -400,9 +417,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
         >
           <Form.Item name="satisfaction_client">
             <Radio.Group name="satisfaction_client">
-              <Radio value="gout">Très satisfaits</Radio>
+              <Radio value="trés Satisfait">Très satisfaits</Radio>
               <Radio value="Satisfait">Satisfait</Radio>
-              <Radio value="non-Satisfait">Non satisfaits</Radio>
+              <Radio value="non Satisfait">Non satisfaits</Radio>
             </Radio.Group>
           </Form.Item>
         </Card>
@@ -413,7 +430,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           title="Donnez une note de votre satisfaction pour cet point de vente : *"
         >
           <Form.Item name="satisfaction_vente">
-            <Rate name="satisfaction_vente" allowHalf defaultValue={5} />
+            <Rate name="satisfaction_vente" allowHalf defaultValue={'0'} />
           </Form.Item>
         </Card>
         <Card
@@ -424,8 +441,8 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
         >
           <Form.Item name="commandes_ligne">
             <Radio.Group name="commandes_ligne">
-              <Radio value={true}>Oui</Radio>
-              <Radio value={false}>Non</Radio>
+              <Radio value={"Oui"}>Oui</Radio>
+              <Radio value={"Non"}>Non</Radio>
             </Radio.Group>
           </Form.Item>
         </Card>
@@ -436,7 +453,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           title="Si oui, et vous avez déjà commander en ligne, donnez votre dégréé de satisfaction pour le service de livraison"
         >
           <Form.Item name="satisfaction_livraison">
-            <Rate name="satisfaction_livraison" allowHalf defaultValue={5} />
+            <Rate name="satisfaction_livraison" allowHalf defaultValue={'0'} />
           </Form.Item>
         </Card>
         <Card

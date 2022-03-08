@@ -1,10 +1,4 @@
 import React, { useState } from "react";
-// import sections
-import Hero from "../components/sections/Hero";
-import FeaturesTiles from "../components/sections/FeaturesTiles";
-import FeaturesSplit from "../components/sections/FeaturesSplit";
-import Testimonial from "../components/sections/Testimonial";
-import Cta from "../components/sections/Cta";
 import Switch from "../components/elements/Switch";
 
 import ReactFullpage from "@fullpage/react-fullpage";
@@ -18,10 +12,7 @@ import menu4 from "../assets/images/gourmandise/menu/menu4.webp";
 
 import Slider from "../components/sections/FullPages/Slider";
 import Footer from "../components/layout/Footer";
-import { Card, Space } from "antd";
-import SmoothScroll from "../components/elements/SmoothScroll";
-import Button from "../components/elements/Button";
-import Evaluation from "../components/sections/Evaluation/Evaluation";
+import { Card } from "antd";
 import Dashboard from "../components/sections/Dashboard/Dashboard";
 const SEL = "custom-section";
 const SECTION_SEL = `.${SEL}`;
@@ -132,7 +123,7 @@ const Home = () => {
               className={SEL + " " + classes.sectionContainer}
             >
               <br></br>
-              <FeaturesTiles />
+              <h1>hello</h1>
             </div>
             <div
               align="center"
