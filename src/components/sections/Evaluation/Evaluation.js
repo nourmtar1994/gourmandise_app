@@ -298,7 +298,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           >
             <Radio.Group name="nbr_visite">
               <Radio value="-5"> moins de 5</Radio>
+              <br />
               <Radio value="5-10">entre 5 et 10 fois </Radio>
+              <br />
               <Radio value="10+">plus de 10 </Radio>
             </Radio.Group>
           </Form.Item>
@@ -312,7 +314,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="service">
             <Radio.Group name="service">
               <Radio value="Excellent"> Excellent</Radio>
+              <br />
               <Radio value="Bon">Bon</Radio>
+              <br />
               <Radio value="Mauvais">Mauvais </Radio>
             </Radio.Group>
           </Form.Item>
@@ -326,7 +330,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="avis_espace">
             <Radio.Group name="avis_espace">
               <Radio value="Spacieux"> Spacieux</Radio>
+              <br />
               <Radio value="Moyen">Moyen</Radio>
+              <br />
               <Radio value="Non-spacieux">Non spacieux </Radio>
             </Radio.Group>
           </Form.Item>
@@ -340,7 +346,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="proprete_espace">
             <Radio.Group name="proprete_espace">
               <Radio value="Tres_propre">Très propre</Radio>
+              <br />
               <Radio value="Propre">Propre</Radio>
+              <br />
               <Radio value="Non_propre">Non propre </Radio>
             </Radio.Group>
           </Form.Item>
@@ -355,7 +363,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="modernite">
             <Radio.Group name="modernite">
               <Radio value="Tres_moderne">Très moderne</Radio>
+              <br />
               <Radio value="Normal">Normal</Radio>
+              <br />
               <Radio value="Non_moderne">Non moderne</Radio>
             </Radio.Group>
           </Form.Item>
@@ -370,9 +380,13 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="prix">
             <Radio.Group name="prix">
               <Radio value="Raisonnable">Raisonnable</Radio>
+              <br />
+
               <Radio value="Excessivement_cher">Excessivement cher</Radio>
+              <br />
               <Radio value="Cher">Cher</Radio>
             </Radio.Group>
+
           </Form.Item>
         </Card>
         <Card
@@ -380,6 +394,8 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           align="left"
           hoverable
           title="Les serveurs de cet point de vente sont ? *"
+          style={{ display: "table-caption" }}
+
         >
           <Form.Item name="serveurs">
             <Checkbox.Group options={serveurs} name="serveurs" />
@@ -390,12 +406,16 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           align="left"
           hoverable
           title="Vos commandes sont généralement pour : *"
+          style={{ display: "table-caption" }}
+
         >
           <Form.Item name="commandes_type">
+
             <Checkbox.Group
               options={commandes_type}
               name="commandes_type"
             ></Checkbox.Group>
+
           </Form.Item>
         </Card>
 
@@ -404,6 +424,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           hoverable
           className={classes.formCard}
           title="Vous passez votre commande de produits selon : *"
+          style={{ display: "table-caption" }}
         >
           <Form.Item name="commandes_cause">
             <Checkbox.Group options={commandes_cause} name="commandes_cause" />
@@ -418,7 +439,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="satisfaction_client">
             <Radio.Group name="satisfaction_client">
               <Radio value="trés Satisfait">Très satisfaits</Radio>
+              <br />
               <Radio value="Satisfait">Satisfait</Radio>
+              <br />
               <Radio value="non Satisfait">Non satisfaits</Radio>
             </Radio.Group>
           </Form.Item>
@@ -442,6 +465,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="commandes_ligne">
             <Radio.Group name="commandes_ligne">
               <Radio value={"Oui"}>Oui</Radio>
+              <br />
               <Radio value={"Non"}>Non</Radio>
             </Radio.Group>
           </Form.Item>
@@ -465,6 +489,7 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="type_commande">
             <Radio.Group name="type_commande">
               <Radio value={"ligne"}>passer des commandes en ligne</Radio>
+              <br />
               <Radio value={"visite"}>visiter l'espace directement</Radio>
             </Radio.Group>
           </Form.Item>
@@ -478,7 +503,9 @@ const Evaluation = ({ setEvalution, EvaluationData, setEvaluationData }) => {
           <Form.Item name="commandes_avis">
             <Radio.Group name="commandes_avis">
               <Radio value={"Délicieuse"}>Délicieuse</Radio>
+              <br />
               <Radio value={"Moyenne"}>Moyenne</Radio>
+              <br />
               <Radio value={"Mauvaise"}>Mauvaise</Radio>
             </Radio.Group>
           </Form.Item>

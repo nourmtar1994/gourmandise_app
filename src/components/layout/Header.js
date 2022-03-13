@@ -112,7 +112,7 @@ const Header = ({
                     )}
                   >
                     <li>
-                      <Link to="#0" onClick={closeMenu}>
+                      <Link to="/gestion" onClick={closeMenu}>
                         Gestion des données
                       </Link>
                     </li>

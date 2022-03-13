@@ -96,3 +96,10 @@ a:hover {
 .go2441762052 {
   display: none !important;
 }
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #bf9a62 !important ;
+}
+.ant-tabs-ink-bar {
+  background: #bf9a62 !important ;
+}

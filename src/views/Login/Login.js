@@ -1,9 +1,11 @@
-import { UserOutlined } from "@ant-design/icons/lib/icons";
-import { Input } from "antd";
+import { Button, Input } from "antd";
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { getPointVente } from "../../services/PointVente";
 import * as classes from "./Login.module.css";
+import { GoogleOutlined, UserOutlined } from '@ant-design/icons'
+import { GoogleLogin } from 'react-google-login';
+
 
 const Login = ({ setIdentified, EvaluationData, setEvaluationData }) => {
   let history = useHistory();
@@ -19,6 +21,15 @@ const Login = ({ setIdentified, EvaluationData, setEvaluationData }) => {
     });
   };
 
+  const responseGoogle = (response) => {
+    console.log(response);
+    setIdentified(true);
+    setEvaluationData({
+      ...EvaluationData,
+      login: response.profileObj.email,
+    });
+  }
+
   useEffect(() => {
     history.push("/steps");
     login && setIdentified(null);
@@ -32,13 +43,25 @@ const Login = ({ setIdentified, EvaluationData, setEvaluationData }) => {
         <Input
           autoFocus
           // disabled={login ? true : false}
-          placeholder="Login"
-          type="email"
+          placeholder="Email or N° Tél"
+          type="text"
           className={classes.loginInput}
           value={login}
           onChange={(e) => setlogin(e.target.value)}
         />
       </form>
+      <h4 className={classes.description}>Ou</h4>
+
+
+      <GoogleLogin
+        clientId="838820427014-vot40gof7htmf8ceo5il1db0ps67up40.apps.googleusercontent.com"
+        buttonText="Login"
+        icon={<GoogleOutlined />}
+        onSuccess={responseGoogle}
+        onFailure={responseGoogle}
+        cookiePolicy={'single_host_origin'}
+      />
+
     </div>
   );
 };

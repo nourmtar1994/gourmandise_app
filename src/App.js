@@ -13,6 +13,7 @@ import "./App.css";
 import Login from "./views/Login/Login";
 import Steps from "./views/Steps/Steps";
 import Evaluation from "./components/sections/Evaluation/Evaluation";
+import DataMenage from "./views/DataMenage/DataMenage";
 
 // // Initialize Google Analytics
 // ReactGA.initialize(process.env.REACT_APP_GA_CODE);
@@ -39,14 +40,14 @@ const App = () => {
       ref={childRef}
       children={() => (
         <Switch>
-          <AppRoute exact path="/" component={Home} layout={LayoutDefault} />
+          <AppRoute exact path="/admin" component={Home} layout={LayoutDefault} />
           <AppRoute exact path="/login" component={Login} />
-          <AppRoute exact path="/eval">
-            <Evaluation />
-          </AppRoute>
           <Route path="/Steps/:ptVenteID?">
             <Steps />
           </Route>
+          <AppRoute exact path="/gestion" component={DataMenage} layout={LayoutDefault} >
+
+          </AppRoute>
         </Switch>
       )}
     />
